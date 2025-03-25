@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<!-- this is the css for the bank application, added some color for pizzaz -->
+<!--- @authors - Anirudh Deveram and Karthik Penumetch -->
+<BorderPane fx:id="RootPanel" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project3.Controller" style="-fx-background-color: #f5f5f7;">
+  <center>
+    <TabPane fx:id="MainTabPane" tabClosingPolicy="UNAVAILABLE" style="-fx-background-color: transparent;">
+      <tabs>
+        <Tab fx:id="OpenNewTab" text="Open New Account" style="-fx-background-color: #4a86e8; -fx-text-base-color: white;">
+          <content>
+            <AnchorPane fx:id="OpenNewAnchorMain" style="-fx-background-color: linear-gradient(to bottom right, #e6f2ff, #ffffff);">
+              <AnchorPane fx:id="OpenNewAnchorwithinAnchor">
+                <GridPane fx:id="OpenNewMainGrid" hgap="15" vgap="12">
+                  <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                  <Label fx:id="AccountTypeLabel" text="Account Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                    <font>
+                      <Font name="System Bold" size="14.0" />
+                    </font>
+                  </Label>
+                  <GridPane fx:id="AccountTypeGrid" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-color: #f0f7ff; -fx-background-radius: 5; -fx-padding: 10;">
+                    <RadioButton fx:id="CheckingRB" text="Checking" selected="true" style="-fx-text-fill: #2e5cb8;">
+                      <toggleGroup>
+                        <ToggleGroup fx:id="Rb_types" />
+                      </toggleGroup>
+                    </RadioButton>
+                    <RadioButton fx:id="CcRB" text="College Checking" toggleGroup="$Rb_types" GridPane.columnIndex="1" style="-fx-text-fill: #2e5cb8;" />
+                    <RadioButton fx:id="SavingRB" text="Savings" toggleGroup="$Rb_types" GridPane.rowIndex="1" style="-fx-text-fill: #2e5cb8;" />
+                    <RadioButton fx:id="MmRB" text="Money Market" toggleGroup="$Rb_types" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-text-fill: #2e5cb8;" />
+                    <RadioButton fx:id="CdRB" text="Certificate of Deposit" toggleGroup="$Rb_types" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-text-fill: #2e5cb8;" />
+                  </GridPane>
+                  <HBox fx:id="BranchHbox" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Branch:" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <ComboBox fx:id="BranchComboBox" promptText="Select Branch" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  </HBox>
+                  <Label fx:id="FirstNameLabel" text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                    <font>
+                      <Font name="System Bold" size="14.0" />
+                    </font>
+                  </Label>
+                  <TextField fx:id="FirstNameTextField" promptText="Enter first name" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  <Label fx:id="LastNameLabel" text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                    <font>
+                      <Font name="System Bold" size="14.0" />
+                    </font>
+                  </Label>
+                  <TextField fx:id="LastNameText" promptText="Enter last name" GridPane.columnIndex="1" GridPane.rowIndex="3" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  <Label fx:id="DobLabel" text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                    <font>
+                      <Font name="System Bold" size="14.0" />
+                    </font>
+                  </Label>
+                  <DatePicker fx:id="DobDatePicker" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="4" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  <Label fx:id="InitialDepositLabel" text="Initial Deposit:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                    <font>
+                      <Font name="System Bold" size="14.0" />
+                    </font>
+                  </Label>
+                  <TextField fx:id="InitialDepositText" promptText="Enter amount" GridPane.columnIndex="1" GridPane.rowIndex="5" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  <VBox fx:id="CampusVBox" visible="false" managed="false" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2" style="-fx-background-color: #f0f7ff; -fx-background-radius: 5; -fx-padding: 10;">
+                    <Label fx:id="CampusLabel" text="Campus:" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <HBox fx:id="CampusHBox" spacing="10">
+                      <RadioButton fx:id="NbRB" text="New Brunswick" selected="true" style="-fx-text-fill: #2e5cb8;">
+                        <toggleGroup>
+                          <ToggleGroup fx:id="Rb_campus" />
+                        </toggleGroup>
+                      </RadioButton>
+                      <RadioButton fx:id="NewarkRB" text="Newark" toggleGroup="$Rb_campus" style="-fx-text-fill: #2e5cb8;" />
+                      <RadioButton fx:id="CamdenRB" text="Camden" toggleGroup="$Rb_campus" style="-fx-text-fill: #2e5cb8;" />
+                    </HBox>
+                  </VBox>
+                  <HBox fx:id="DateOpenedHBox" visible="false" managed="false" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.columnSpan="2" style="-fx-background-color: #f0f7ff; -fx-background-radius: 5; -fx-padding: 10;">
+                    <Label fx:id="DateOpenedLabel" text="Date Opened:" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <DatePicker fx:id="DateOpenedDatePicker" promptText="MM/DD/YYYY" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                    <Label text="Term (months):" style="-fx-font-weight: bold; -fx-text-fill: #1a56a8;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <ComboBox fx:id="TermComboBox" promptText="Select Term" style="-fx-background-color: #e6f2ff; -fx-border-color: #4a86e8; -fx-border-radius: 3;" />
+                  </HBox>
+                  <CheckBox fx:id="LoyalCheckBox" text="Loyal Customer" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="2" style="-fx-text-fill: #2e5cb8;" />
+                  <HBox spacing="15" alignment="CENTER_RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="9" GridPane.columnSpan="2">
+                    <Button fx:id="OpenButton" text="Open Account" onAction="#handleOpenAccount" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                      <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                    </Button>
+                    <Button fx:id="CancelButton" text="Clear" onAction="#handleCancel" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                      <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                    </Button>
+                  </HBox>
+                </GridPane>
+              </AnchorPane>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="CloseDepositWithdrawTab" text="Close/Deposit/Withdraw" style="-fx-background-color: #f4b400; -fx-text-base-color: white;">
+          <content>
+            <AnchorPane style="-fx-background-color: linear-gradient(to bottom right, #fff8e6, #ffffff);">
+              <GridPane fx:id="CloseAccountGrid" hgap="15" vgap="12">
+                <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                <Label fx:id="AccountNumberLabel" text="Account Number:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                  <font>
+                    <Font name="System Bold" size="14.0" />
+                  </font>
+                </Label>
+                <TextField fx:id="AccountNumberText" promptText="Enter account number" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                <Label fx:id="AmountLabel" text="Amount:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                  <font>
+                    <Font name="System Bold" size="14.0" />
+                  </font>
+                </Label>
+                <TextField fx:id="AmountText" promptText="Enter amount" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                <Label fx:id="ClosingDateLabel" text="Closing Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                  <font>
+                    <Font name="System Bold" size="14.0" />
+                  </font>
+                </Label>
+                <DatePicker fx:id="ClosingDateDatePicker" promptText="MM/DD/YYYY" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                  <Button fx:id="DepositButton" text="Deposit" onAction="#handleDeposit" style="-fx-background-color: #0f9d58; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                  </Button>
+                  <Button fx:id="WithdrawButton" text="Withdraw" onAction="#handleWithdraw" style="-fx-background-color: #f4b400; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                  </Button>
+                  <Button fx:id="CloseAccountButton" text="Close Account" onAction="#handleCloseAccount" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                  </Button>
+                </HBox>
+                <HBox fx:id="ClosingHBox" spacing="15" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" style="-fx-background-color: #fffaeb; -fx-background-radius: 5; -fx-padding: 10;">
+                  <VBox spacing="5">
+                    <Label fx:id="ClosingFirstNLabel" text="First Name:" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <TextField fx:id="ClosingFirstNText" promptText="Enter first name" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                  </VBox>
+                  <VBox spacing="5">
+                    <Label fx:id="ClosingLastNLabel" text="Last Name:" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <TextField fx:id="ClosingLastNText" promptText="Enter last name" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                  </VBox>
+                  <VBox spacing="5">
+                    <Label fx:id="ClosingDOBLabel" text="Date of Birth:" style="-fx-font-weight: bold; -fx-text-fill: #b07b00;">
+                      <font>
+                        <Font name="System Bold" size="14.0" />
+                      </font>
+                    </Label>
+                    <DatePicker fx:id="ClosingDOBDatePicker" promptText="MM/DD/YYYY" style="-fx-background-color: #fff8e6; -fx-border-color: #f4b400; -fx-border-radius: 3;" />
+                  </VBox>
+                  <VBox spacing="5" alignment="BOTTOM_LEFT">
+                    <Button fx:id="CloseAllButton" text="Close All" onAction="#handleCloseAllAccounts" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                      <padding><Insets bottom="8" left="15" right="15" top="8" /></padding>
+                    </Button>
+                  </VBox>
+                </HBox>
+              </GridPane>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="AccountDatabaseTab" text="Account Database" style="-fx-background-color: #0f9d58; -fx-text-base-color: white;">
+          <content>
+            <AnchorPane fx:id="AccountDBAnchor" style="-fx-background-color: linear-gradient(to bottom right, #e6f5ec, #ffffff);">
+              <GridPane fx:id="AccountDBGrid" hgap="15" vgap="15">
+                <padding><Insets bottom="25" left="25" right="25" top="25" /></padding>
+                <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <Button fx:id="LoadAccountFileButton" text="Load Accounts" onAction="#handleLoadAccountFile" style="-fx-background-color: #0f9d58; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                  <Button fx:id="LoadActivitesFileButton" text="Load Activities" onAction="#handleLoadActivitesFile" style="-fx-background-color: #0f9d58; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                </HBox>
+                <HBox spacing="15" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <Button fx:id="PrintHolderButton" text="Print by Holder" onAction="#handlePrintByHolder" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                  <Button fx:id="PrintTypeButton" text="Print by Type" onAction="#handlePrintByType" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                  <Button fx:id="PrintBranchButton" text="Print by Branch" onAction="#handlePrintByBranch" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                  <Button fx:id="PrintStatementButton" text="Print Statements" onAction="#handlePrintStatements" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                  <Button fx:id="PrintArchiveButton" text="Print Archive" onAction="#handlePrintArchive" style="-fx-background-color: #4a86e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;">
+                    <padding><Insets bottom="10" left="15" right="15" top="10" /></padding>
+                  </Button>
+                </HBox>
+              </GridPane>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </center>
+  <bottom>
+    <VBox style="-fx-background-color: #333333; -fx-padding: 10;">
+      <Label text="Output:" style="-fx-text-fill: white; -fx-font-weight: bold;">
+        <font>
+          <Font name="System Bold" size="14.0" />
+        </font>
+      </Label>
+      <TextArea fx:id="OutputTextArea" prefHeight="200" prefWidth="600" editable="false" wrapText="true" style="-fx-control-inner-background: #f8f8f8; -fx-border-color: #4a86e8; -fx-border-width: 2;" />
+    </VBox>
+  </bottom>
+</BorderPane>
